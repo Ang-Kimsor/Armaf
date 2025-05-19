@@ -1,0 +1,101 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+const Footer = () => {
+  return (
+    <footer>
+      <section className="w-full h-[300px] bg-[#1b1b1b] flex items-center justify-center flex-col">
+        <h1 className="uppercase text-white font-semibold tracking-wider md:text-xl px-10 text-center">
+          Join the domain of high perfumery and its circle
+        </h1>
+        <div className="flex md:flex-nowrap flex-wrap gap-5 mt-5 px-5">
+          <input
+            type="text"
+            className="border border-white md:w-[500px] w-full p-3 placeholder:text-white placeholder:text-xl placeholder:font-medium text-white text-lg outline-0"
+            placeholder="Email"
+          />
+
+          <button className="md:w-fit w-full border md:py-0 py-3 border-white px-5 font-semibold tracking-wide cursor-pointer text-white text-[13px] md:text-sm">
+            SUBSCRIBE
+          </button>
+        </div>
+      </section>
+      <section className="w-full py-12 bg-black flex items-center justify-center">
+        <div className="w-[90%]  grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-5">
+          <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
+            <h1 className="uppercase md:text-xl text-sm font-semibold text-center ">
+              Find it fast
+            </h1>
+            <li className="mt-3">
+              <Link>Search</Link>
+            </li>
+            <li>
+              <Link>About us</Link>
+            </li>
+            <li>
+              <Link>FAQ</Link>
+            </li>
+            <li>
+              <Link>Blogs</Link>
+            </li>
+            <li>
+              <Link>Privacy Policy</Link>
+            </li>
+          </ul>
+          <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
+            <h1 className="uppercase md:text-xl text-sm font-semibold text-center ">
+              Find it fast
+            </h1>
+            <li className="mt-3">
+              <Link>Search</Link>
+            </li>
+            <li>
+              <Link>About us</Link>
+            </li>
+            <li>
+              <Link>FAQ</Link>
+            </li>
+            <li>
+              <Link>Blogs</Link>
+            </li>
+            <li>
+              <Link>Privacy Policy</Link>
+            </li>
+          </ul>
+          <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
+            <h1 className="uppercase md:text-xl text-sm font-semibold text-center ">
+              Find it fast
+            </h1>
+            <li className="mt-3">
+              <Link>Search</Link>
+            </li>
+            <li>
+              <Link>About us</Link>
+            </li>
+            <li>
+              <Link>FAQ</Link>
+            </li>
+            <li>
+              <Link>Blogs</Link>
+            </li>
+            <li>
+              <Link>Privacy Policy</Link>
+            </li>
+          </ul>
+          <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
+            <h1 className="uppercase md:text-xl text-sm font-semibold text-center ">
+              Get connected
+            </h1>
+            <div className="flex gap-4 text-3xl mt-2">
+              <i className="bi bi-facebook cursor-pointer"></i>
+              <i className="bi bi-instagram cursor-pointer"></i>
+              <i className="bi bi-tiktok cursor-pointer"></i>
+            </div>
+          </ul>
+        </div>
+      </section>
+    </footer>
+  );
+};
+
+export default Footer;
