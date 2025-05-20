@@ -41,20 +41,23 @@ const Footer = () => {
                 ))}
               </ul>
             ) : (
-              <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
+              <ul
+                key={index}
+                className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3"
+              >
                 <li className="uppercase md:text-xl text-sm font-semibold text-center mb-3">
-                  Get connected
+                  {title}
                 </li>
                 <li className="flex gap-4 text-3xl">
                   {subfooter.map((item, i) => (
-                    <li
+                    <p
                       key={i}
                       className="hover:underline text-white/70 hover:text-white"
                     >
                       <Link>
                         <i className={`bi bi-${item} cursor-pointer`}></i>
                       </Link>
-                    </li>
+                    </p>
                   ))}
                 </li>
               </ul>
