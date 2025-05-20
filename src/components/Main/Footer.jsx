@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { Footerdata } from "../../data/Footer";
 const Footer = () => {
   return (
     <footer>
@@ -22,66 +22,24 @@ const Footer = () => {
       </section>
       <section className="w-full py-12 bg-black flex items-center justify-center">
         <div className="w-[90%]  grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-5">
-          <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
-            <h1 className="uppercase md:text-xl text-sm font-semibold text-center ">
-              Find it fast
-            </h1>
-            <li className="mt-3">
-              <Link>Search</Link>
-            </li>
-            <li>
-              <Link>About us</Link>
-            </li>
-            <li>
-              <Link>FAQ</Link>
-            </li>
-            <li>
-              <Link>Blogs</Link>
-            </li>
-            <li>
-              <Link>Privacy Policy</Link>
-            </li>
-          </ul>
-          <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
-            <h1 className="uppercase md:text-xl text-sm font-semibold text-center ">
-              Find it fast
-            </h1>
-            <li className="mt-3">
-              <Link>Search</Link>
-            </li>
-            <li>
-              <Link>About us</Link>
-            </li>
-            <li>
-              <Link>FAQ</Link>
-            </li>
-            <li>
-              <Link>Blogs</Link>
-            </li>
-            <li>
-              <Link>Privacy Policy</Link>
-            </li>
-          </ul>
-          <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
-            <h1 className="uppercase md:text-xl text-sm font-semibold text-center ">
-              Find it fast
-            </h1>
-            <li className="mt-3">
-              <Link>Search</Link>
-            </li>
-            <li>
-              <Link>About us</Link>
-            </li>
-            <li>
-              <Link>FAQ</Link>
-            </li>
-            <li>
-              <Link>Blogs</Link>
-            </li>
-            <li>
-              <Link>Privacy Policy</Link>
-            </li>
-          </ul>
+          {Footerdata.map(({ title, subfooter }, index) => (
+            <ul
+              key={index}
+              className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3"
+            >
+              <h1 className="uppercase md:text-xl text-sm font-semibold text-center mb-3">
+                {title}
+              </h1>
+              {subfooter.map((item, i) => (
+                <li
+                  key={i}
+                  className="hover:underline text-white/70 hover:text-white"
+                >
+                  <Link>{item}</Link>
+                </li>
+              ))}
+            </ul>
+          ))}
           <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
             <h1 className="uppercase md:text-xl text-sm font-semibold text-center ">
               Get connected
