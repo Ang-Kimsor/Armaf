@@ -22,34 +22,44 @@ const Footer = () => {
       </section>
       <section className="w-full py-12 bg-black flex items-center justify-center">
         <div className="w-[90%]  grid lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-5">
-          {Footerdata.map(({ title, subfooter }, index) => (
-            <ul
-              key={index}
-              className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3"
-            >
-              <h1 className="uppercase md:text-xl text-sm font-semibold text-center mb-3">
-                {title}
-              </h1>
-              {subfooter.map((item, i) => (
-                <li
-                  key={i}
-                  className="hover:underline text-white/70 hover:text-white"
-                >
-                  <Link>{item}</Link>
+          {Footerdata.map(({ title, subfooter }, index) =>
+            index != Footerdata.length - 1 ? (
+              <ul
+                key={index}
+                className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3"
+              >
+                <h1 className="uppercase md:text-xl text-sm font-semibold text-center mb-3">
+                  {title}
+                </h1>
+                {subfooter.map((item, i) => (
+                  <li
+                    key={i}
+                    className="hover:underline text-white/70 hover:text-white"
+                  >
+                    <Link>{item}</Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
+                <li className="uppercase md:text-xl text-sm font-semibold text-center mb-3">
+                  Get connected
                 </li>
-              ))}
-            </ul>
-          ))}
-          <ul className="flex flex-col items-center text-white text-sm gap-1 tracking-wider py-3">
-            <h1 className="uppercase md:text-xl text-sm font-semibold text-center ">
-              Get connected
-            </h1>
-            <div className="flex gap-4 text-3xl mt-2">
-              <i className="bi bi-facebook cursor-pointer"></i>
-              <i className="bi bi-instagram cursor-pointer"></i>
-              <i className="bi bi-tiktok cursor-pointer"></i>
-            </div>
-          </ul>
+                <li className="flex gap-4 text-3xl">
+                  {subfooter.map((item, i) => (
+                    <li
+                      key={i}
+                      className="hover:underline text-white/70 hover:text-white"
+                    >
+                      <Link>
+                        <i className={`bi bi-${item} cursor-pointer`}></i>
+                      </Link>
+                    </li>
+                  ))}
+                </li>
+              </ul>
+            )
+          )}
         </div>
       </section>
     </footer>

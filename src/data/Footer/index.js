@@ -26,4 +26,5 @@ export const Footerdata = [
       "My Orders",
     ],
   },
+  { title: "Get connected", subfooter: ["facebook", "instagram", "tiktok"] },
 ];
