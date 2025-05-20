@@ -9,6 +9,7 @@ const VideoHero = () => {
         loop
         autoPlay
         muted
+        playsInline
       ></video>
     </section>
   );
