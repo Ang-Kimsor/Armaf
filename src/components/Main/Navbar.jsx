@@ -23,11 +23,14 @@ const Navbar = () => {
     setOpened(false);
   };
   useEffect(() => {
-    if (!opened) {
-      document.querySelector("body").style.cssText = `overflow-y: auto`;
+    if (opened) {
+      document.body.style.overflow = "hidden";
     } else {
-      document.querySelector("body").style.cssText = `overflow-y: hidden`;
+      document.body.style.overflow = "auto";
     }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [opened]);
   return (
     <>
