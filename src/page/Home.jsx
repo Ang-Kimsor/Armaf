@@ -73,13 +73,11 @@ const Home = () => {
             />
           ))}
         </section>
-        <section className="w-full h-fit mt-3 relative">
-          <ImageBgHero
-            image={ImageBgHeroData.image}
-            name={ImageBgHeroData.name}
-            path={ImageBgHeroData.path}
-          />
-        </section>
+        <ImageBgHero
+          image={ImageBgHeroData.image}
+          name={ImageBgHeroData.name}
+          path={ImageBgHeroData.path}
+        />
         <section className="w-[96%] grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-3 my-12">
           {ImageProductHeroData2.map(
             ({ name, price, stock, image, path }, index) => (
