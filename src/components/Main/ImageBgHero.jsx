@@ -3,7 +3,7 @@ const ImageBgHero = ({ name, path, image }) => {
   return (
     <>
       <section
-        className="relative w-full h-[550px] bg-cover bg-center bg-no-repeat bg-fixed mt-3"
+        className="relative w-full h-[550px] bg-cover bg-center bg-no-repeat md:bg-fixed mt-3"
         style={{ backgroundImage: `url(${image})` }}
       >
         <div className="absolute top-2/3 -translate-y-1/2 left-10">
