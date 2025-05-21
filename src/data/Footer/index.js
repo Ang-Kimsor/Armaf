@@ -15,7 +15,7 @@ export const Footerdata = [
   },
   {
     title: "Contact info",
-    subfooter: ["example@gmail.com", "Call us: xxxxxxxxx"],
+    subfooter: ["example@gmail.com", "Call us: +855 123 456 789"],
   },
   {
     title: "Quick Links",
