@@ -156,7 +156,7 @@ const Navbar = () => {
                       <li key={j} onClick={() => setDefault}>
                         <Link
                           to={`Collections/${item.replaceAll(" ", "-")}`}
-                          className="text-sm tracking-wide uppercase text-nowrap"
+                          className="text-sm tracking-wide uppercase hover:underline text-nowrap"
                         >
                           {item}
                         </Link>

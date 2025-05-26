@@ -3,7 +3,7 @@ import {
   ImageHero,
   ImageProductHero,
   ImageBgHero,
-} from "../components/Main";
+} from "../components";
 import {
   VideoHeroData,
   ImageHeroData1,

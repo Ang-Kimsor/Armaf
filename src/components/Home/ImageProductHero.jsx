@@ -6,7 +6,7 @@ const ImageProduct = ({ name, price, stock, image, path, between }) => {
       to={path}
       className="rounded-[2px] border border-gray-500/20 py-5 group relative"
     >
-      <div className="overflow-hidden">
+      <div className="overflow-hidden flex justify-center">
         <img
           src={image}
           alt={name}
@@ -21,7 +21,7 @@ const ImageProduct = ({ name, price, stock, image, path, between }) => {
       <p className="text-center md:text-lg md:px-0 px-1 text-[12px] uppercase tracking-wide text-black/70 mt-4 group-hover:text-blue-700">
         {name}
       </p>
-      <p className="text-center md:text-sm md:px-0 px-1 text-[15px] capitalize tracking-wide text-black/60 mt-2">
+      <p className="text-center md:text-sm md:px-0 px-1 text-[12px] capitalize tracking-wide text-black/60 mt-2">
         {between ? `from $${price} USD` : `$${price}`}
       </p>
     </Link>
