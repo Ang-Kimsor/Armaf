@@ -53,8 +53,8 @@ const Navbar = () => {
               key={index}
               onClick={(e) => handleSubmenuSmClick(e, index)}
             >
-              <p className="cursor-pointer uppercase flex items-center justify-between md:p-3 px-5 py-3 hover:bg-black/10 font-medium tracking-widest text-md text-black/70">
-                {name} <i className="bi bi-arrow-right text-xl"></i>
+              <p className="flex items-center justify-between px-5 py-3 font-medium tracking-widest uppercase cursor-pointer md:p-3 hover:bg-black/10 text-md text-black/70">
+                {name} <i className="text-xl bi bi-arrow-right"></i>
               </p>
               <span
                 className={`${
@@ -66,7 +66,7 @@ const Navbar = () => {
                     e.stopPropagation();
                     setSubmenusm(null);
                   }}
-                  className="flex w-fit gap-2 md:p-3 px-5 py-3 cursor-pointer font-medium tracking-widest text-md text-black/70 uppercase"
+                  className="flex gap-2 px-5 py-3 font-medium tracking-widest uppercase cursor-pointer w-fit md:p-3 text-md text-black/70"
                 >
                   <i className="bi bi-arrow-left"></i>
                   {name}
@@ -75,27 +75,35 @@ const Navbar = () => {
                   {submenu.map((item, j) => (
                     <li
                       key={j}
-                      className="cursor-pointer uppercase flex items-center justify-between md:p-3 px-5 py-3 hover:bg-black/10 font-medium tracking-widest text-md text-black/70"
-                      onClick={setDefault}
+                      className="flex items-center justify-between px-5 py-3 font-medium tracking-widest uppercase cursor-pointer md:p-3 hover:bg-black/10 text-md text-black/70"
                     >
-                      <Link>{item}</Link>
+                      <Link
+                        className="size-full"
+                        onClick={setDefault}
+                        to={`Collections/${item.replaceAll(" ", "-")}`}
+                      >
+                        {item}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </span>
             </li>
           ))}
-          <li className="w-full cursor-pointer" onClick={setDefault}>
-            <Link className="cursor-pointer uppercase flex items-center justify-between md:p-3 px-5 py-3 hover:bg-black/10 font-medium tracking-widest text-md text-black/70">
+          <li className="w-full cursor-pointer">
+            <Link
+              onClick={setDefault}
+              className="flex items-center justify-between px-5 py-3 font-medium tracking-widest uppercase cursor-pointer md:p-3 hover:bg-black/10 text-md text-black/70"
+            >
               Store Location
             </Link>
           </li>
         </ul>
-        <div className="w-full bg-black/10 py-3 text-white p-2 flex justify-center gap-3 text-2xl items-center">
-          <i className="bi bi-person text-3xl cursor-pointer"></i>
-          <i className="bi bi-facebook cursor-pointer"></i>
-          <i className="bi bi-instagram cursor-pointer"></i>
-          <i className="bi bi-tiktok cursor-pointer"></i>
+        <div className="flex items-center justify-center w-full gap-3 p-2 py-3 text-2xl text-white bg-black/10">
+          <i className="text-3xl cursor-pointer bi bi-person"></i>
+          <i className="cursor-pointer bi bi-facebook"></i>
+          <i className="cursor-pointer bi bi-instagram"></i>
+          <i className="cursor-pointer bi bi-tiktok"></i>
         </div>
       </aside>
       <nav
@@ -117,9 +125,9 @@ const Navbar = () => {
           />
 
           <div className={`flex gap-3 items-center text-black/70`}>
-            <i className="bi bi-search text-xl"></i>
-            <i className="bi bi-person text-2xl lg:block hidden"></i>
-            <i className="bi bi-bag text-xl"></i>
+            <i className="text-xl bi bi-search"></i>
+            <i className="hidden text-2xl bi bi-person lg:block"></i>
+            <i className="text-xl bi bi-bag"></i>
           </div>
         </div>
         <div className="lg:flex hidden h-[40px] justify-center items-center w-full">
@@ -143,10 +151,13 @@ const Navbar = () => {
                     submenulg == index ? "flex" : "hidden"
                   } absolute w-fit bg-white left-[-14px] top-[32px]`}
                 >
-                  <ul className="py-3 px-4 flex flex-col gap-3">
+                  <ul className="flex flex-col gap-3 px-4 py-3 border border-black/20">
                     {submenu.map((item, j) => (
                       <li key={j} onClick={() => setDefault}>
-                        <Link className="text-nowrap text-sm uppercase tracking-wide">
+                        <Link
+                          to={`Collections/${item.replaceAll(" ", "-")}`}
+                          className="text-sm tracking-wide uppercase text-nowrap"
+                        >
                           {item}
                         </Link>
                       </li>
