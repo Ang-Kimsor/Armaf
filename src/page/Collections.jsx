@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { HeroCollections, HeroSmallCollections } from "./../data/Collections";
-import { BigHero, SmallHero } from "../components";
+import { BigHero, SmallHero, ProductCard } from "../components";
 import { useEffect, useState } from "react";
 
 const Collections = () => {
@@ -76,7 +76,6 @@ const Collections = () => {
       <h1 className="my-4 text-2xl tracking-wider text-center uppercase md:text-4xl text-black/80 font-extralight">
         {category}
       </h1>
-
       {category !== "New Launches" && bigHeroData && (
         <>
           <section className="w-full">
@@ -103,7 +102,7 @@ const Collections = () => {
         <div className="flex flex-col w-full gap-5 py-10 md:justify-between md:flex-row">
           <div className="flex flex-col gap-3 text-sm md:items-center md:flex-row text-black/70 md:text-md">
             <h1 className="px-1 tracking-wide">Filter: </h1>
-            <div className="flex gap-3">
+            <div className="flex justify-between md:gap-3">
               <div className="relative">
                 <div
                   className="flex items-center gap-2 px-1 bg-white cursor-pointer text-black/70 hover:underline"
@@ -113,7 +112,7 @@ const Collections = () => {
                   }}
                 >
                   Availability
-                  <i className="text-[12px] bi bi-chevron-down mt-1 hover:no-underline"></i>
+                  <i className="text-[12px] bi bi-chevron-down mt-[1.3px] hover:no-underline"></i>
                 </div>
                 <div
                   className={`bg-white absolute md:w-[320px] w-fit left-0 border-black/20 border md:p-2 px-5 py-2 my-2 ${
@@ -147,7 +146,7 @@ const Collections = () => {
                   }}
                 >
                   Gender
-                  <i className="text-[12px] bi bi-chevron-down mt-1 hover:no-underline"></i>
+                  <i className="text-[12px] bi bi-chevron-down mt-[1.3px] hover:no-underline"></i>
                 </div>
                 <div
                   className={`bg-white absolute md:w-[320px] w-fit left-0 border-black/20 border md:p-2 px-5 py-2 my-2 ${
@@ -181,10 +180,10 @@ const Collections = () => {
                   }}
                 >
                   Price
-                  <i className="text-[12px] bi bi-chevron-down mt-1 hover:no-underline"></i>
+                  <i className="text-[12px] bi bi-chevron-down mt-[1.3px] hover:no-underline"></i>
                 </div>
                 <div
-                  className={`bg-white absolute md:w-[320px] w-[90%] md:left-0 left-[5%] border-black/20 border md:p-2 px-5 py-2 my-2 ${
+                  className={`bg-white absolute md:w-[320px] w-[95%] md:left-0 left-[2.5%] border-black/20 border md:p-2 px-5 py-2 my-2 ${
                     priceopen ? "flex" : "hidden"
                   } flex-col gap-3 justify-center`}
                 >
@@ -215,23 +214,32 @@ const Collections = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-row items-center gap-2 px-1 text-sm text-black/70 text-nowrap md:text-md">
-            <h1>Sort by: </h1>
-            <select
-              className="px-3 text-sm border-none outline-0"
-              defaultValue={sortby}
-              onChange={(e) => setSortby(e.target.value)}
-              onClick={() => reset()}
-            >
-              {sort.map(({ name, value }, index) => (
-                <option key={index} value={value}>
-                  {name}
-                </option>
-              ))}
-            </select>
+          <div className="flex flex-row items-center justify-between gap-2 px-1 text-sm text-black/70 text-nowrap md:text-md">
+            <div className="flex">
+              <h1>Sort by: </h1>
+              <select
+                className="px-3 text-sm border-none outline-0"
+                defaultValue={sortby}
+                onChange={(e) => setSortby(e.target.value)}
+                onClick={() => reset()}
+              >
+                {sort.map(({ name, value }, index) => (
+                  <option key={index} value={value}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
             <p className="text-sm text-black/50">100 Products</p>
           </div>
         </div>
+      </section>
+      <section className="w-[98.5%] grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
       </section>
     </main>
   );

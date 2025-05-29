@@ -6,15 +6,15 @@ const ImageProduct = ({ name, price, stock, image, path, between }) => {
       to={path}
       className="rounded-[2px] border border-gray-500/20 py-5 group relative"
     >
-      <div className="overflow-hidden flex justify-center">
+      <div className="flex justify-center overflow-hidden">
         <img
           src={image}
           alt={name}
-          className="group-hover:scale-105 transition-all duration-500"
+          className="transition-all duration-500 group-hover:scale-105"
         />
       </div>
       {stock && (
-        <span className="absolute px-3 left-0 top-3 text-white bg-black/70 md:text-[12px] text-[9px] py-1 rounded-full mx-3 font-semibold">
+        <span className="absolute px-2 left-0 top-3 text-white bg-black tracking-wider text-[7px] py-1 rounded-full mx-3 font-semibold">
           SOLD OUT
         </span>
       )}

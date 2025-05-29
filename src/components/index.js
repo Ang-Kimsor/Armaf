@@ -6,3 +6,4 @@ export { default as ImageProductHero } from "./Home/ImageProductHero";
 export { default as ImageBgHero } from "./Home/ImageBgHero";
 export { default as BigHero } from "./Collections/BigHero";
 export { default as SmallHero } from "./Collections/SmallHero";
+export { default as ProductCard } from "./Collections/ProductCard";
