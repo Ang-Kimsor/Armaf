@@ -98,7 +98,7 @@ const Collections = () => {
           </section>
         </>
       )}
-      <section className="w-[98.5%]">
+      <section className="w-[98.5%] z-[10]">
         <div className="flex flex-col w-full gap-5 py-10 md:justify-between md:flex-row">
           <div className="flex flex-col gap-3 text-sm md:items-center md:flex-row text-black/70 md:text-md">
             <h1 className="px-1 tracking-wide">Filter: </h1>
@@ -234,7 +234,7 @@ const Collections = () => {
           </div>
         </div>
       </section>
-      <section className="w-[98.5%] grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2">
+      <section className="w-[98.5%] grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 z-[9]">
         <ProductCard />
         <ProductCard />
         <ProductCard />
