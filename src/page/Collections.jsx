@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { HeroCollections, HeroSmallCollections } from "./../data/Collections";
+import { ProductData } from "../data/Product";
 import { BigHero, SmallHero, ProductCard } from "../components";
 import { useEffect, useState } from "react";
 
@@ -235,11 +236,9 @@ const Collections = () => {
         </div>
       </section>
       <section className="w-[98.5%] grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 z-[9]">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {ProductData.map(({ id, img }) => (
+          <ProductCard key={id} img={img} />
+        ))}
       </section>
     </main>
   );

@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img from "./../../assets/clubdenuit/prd21.jpg";
-const ProductCard = () => {
+const ProductCard = ({ id, img }) => {
   return (
     <Link className="relative py-2 border border-black/20">
       <div className="overflow-hidden">
         <img
           src={img}
-          alt=""
+          alt={id}
           className="transition-all duration-500 hover:scale-105"
         />
       </div>
