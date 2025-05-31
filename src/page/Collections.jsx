@@ -19,10 +19,10 @@ const Collections = () => {
   const [smallHeroData, setSmallHeroData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [availabilityopen, setAvailabilityopen] = useState(false);
-  const [availability, setAvailability] = useState("Default");
   const [genderopen, setGenderopen] = useState(false);
-  const [gender, setGender] = useState("All");
   const [priceopen, setPriceopen] = useState(false);
+  const [availability, setAvailability] = useState("Default");
+  const [gender, setGender] = useState("All");
   const [pricemin, setPricemin] = useState(0);
   const [pricemax, setPricemax] = useState(maxPrice);
   const [sortby, setSortby] = useState("default");
