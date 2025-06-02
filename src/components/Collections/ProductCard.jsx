@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const ProductCard = ({ id, name, category, price, stock, img }) => {
   return (
-    <Link className="relative py-2 border border-black/20">
+    <Link to={`${name}`} className="relative py-2 border border-black/20">
       <div className="overflow-hidden">
         <img
           src={img}
@@ -19,7 +19,7 @@ const ProductCard = ({ id, name, category, price, stock, img }) => {
         {name}
       </h1>
       <p className="md:text-sm text-[12px] mt-2 text-center text-black/70">
-        ${price} USD
+        ${price.toFixed(2)} USD
       </p>
     </Link>
   );

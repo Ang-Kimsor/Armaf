@@ -41,6 +41,7 @@ const Collections = () => {
   ];
 
   useEffect(() => {
+    document.title = `Armaf-${category}`;
     const big = HeroCollections.find(
       (c) => c.category.toLowerCase() === category.toLowerCase()
     );
@@ -59,6 +60,14 @@ const Collections = () => {
     setPricemax(maxPrice);
 
     setLoading(false);
+    setGenderopen(false);
+    setAvailabilityopen(false);
+    setPriceopen(false);
+    setAvailability("Default");
+    setGender("All");
+    setPricemin(0);
+    setPricemax(maxPrice);
+    setSortby("default");
   }, [category, maxPrice]);
 
   const filtered = useMemo(() => {
@@ -278,7 +287,9 @@ const Collections = () => {
                       max={100}
                       value={pricemax}
                       onChange={(e) =>
-                        setPricemax(e.target.value > 100 ? 100 : e.target.value)
+                        setPricemax(
+                          e.target.value > maxPrice ? maxPrice : e.target.value
+                        )
                       }
                       placeholder="Maximum"
                       className="w-1/2 h-[50px] bg-white border text-center text-xl rounded input-no-arrows outline-0"
@@ -294,7 +305,6 @@ const Collections = () => {
               <select
                 className="px-3 text-sm border-none outline-0"
                 defaultValue={sortby}
-                value={sortby}
                 onChange={(e) => setSortby(e.target.value)}
                 onClick={() => reset()}
               >

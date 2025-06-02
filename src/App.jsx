@@ -15,6 +15,10 @@ const Router = createBrowserRouter([
         path: "Collections/:category",
         element: <Collection />,
       },
+      {
+        path: "Collections/:caetgory/:productname",
+        element: <h1>This is product</h1>,
+      },
     ],
   },
 ]);
