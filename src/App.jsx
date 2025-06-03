@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Rootlayout from "./layout/RootLayout";
-import { Home, Collection } from "./page";
+import { Home, Collection, Detail } from "./page";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -16,8 +16,8 @@ const Router = createBrowserRouter([
         element: <Collection />,
       },
       {
-        path: "Collections/:caetgory/:productname",
-        element: <h1>This is product</h1>,
+        path: "Collections/:category/:productname",
+        element: <Detail />,
       },
     ],
   },
