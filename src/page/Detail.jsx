@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { ProductData } from "./../data/Product";
-import { useParams } from "react-router-dom";
-import { DropDown, ImagePreview, ProductCard } from "../components";
+import { Link, useParams } from "react-router-dom";
+import { CartWidget, DropDown, ImagePreview, ProductCard } from "../components";
+import { useCart } from "../context/CartContext";
 const Detail = () => {
+  const { Cart, dispatchCart } = useCart();
   const [qty, setQTy] = useState(1);
   const [preview, setPreview] = useState(false);
+  const [cart, setCart] = useState(false);
+  const [full, setFull] = useState(false);
   const { category, productname } = useParams();
   const Cate = category.toLowerCase().replaceAll("-", " ");
   const ProdName = productname.toLowerCase().replaceAll("-", " ");
@@ -20,17 +24,51 @@ const Detail = () => {
     if (preview) document.querySelector("body").style.overflowY = "hidden";
     else document.querySelector("body").style.overflowY = "auto";
   }, [preview]);
+  const handleAddtocart = (e) => {
+    e.preventDefault();
+    const inCart = Cart.find((item) => item.id === Data.id);
+    const qtyCart = inCart ? inCart.qty + qty : qty;
+    if (qtyCart > Data.stock) {
+      setFull(true);
+      setTimeout(() => setFull(false), 3000);
+      return;
+    }
+    setCart(true);
+    dispatchCart({
+      type: "ADD",
+      payload: {
+        id: Data.id,
+        name: Data.name,
+        category: Data.category,
+        price: Data.price,
+        qty: qty,
+        stock: Data.stock,
+        img: Data.img,
+        gender: Data.gender,
+      },
+    });
+    setTimeout(() => setCart(false), 3000);
+  };
+  console.log(Cart);
   return (
     <>
       {preview && (
         <ImagePreview img={Data.img} setFalse={() => setPreview(false)} />
       )}
+      <CartWidget
+        img={Data.img}
+        name={Data.name}
+        qty={qty}
+        price={Data.price}
+        cart={cart}
+        full={full}
+      />
       <main className="flex flex-col items-center w-full py-8">
         <article className="w-[95%] grid md:grid-cols-2 gap-5">
           <div className="relative flex items-center justify-center py-5 bg-white border cursor-pointer border-black/10 group h-fit">
             <img src={Data.img} alt="" />
             <div
-              className="absolute top-5 left-5 border border-black/10 p-2 rounded-full size-[40px] group-hover:flex items-center justify-center hidden"
+              className="absolute top-5 left-5 border border-black/10 p-2 rounded-full size-[40px] md:group-hover:flex flex items-center justify-center md:hidden"
               onClick={() => setPreview(true)}
             >
               <i className="bi bi-search"></i>
@@ -113,7 +151,10 @@ const Detail = () => {
                 des={`We will notify you once we’ve received and inspected your return and let you know if the refund was approved. If approved, you’ll be automatically refunded on your original payment method. Please remember it can take some time for your bank or credit card company to process and post the refund.`}
               />
             </div>
-            <button className="w-full py-3 text-xl text-white uppercase bg-black cursor-pointer">
+            <button
+              className="w-full py-3 text-xl text-white uppercase bg-black cursor-pointer"
+              onClick={(e) => handleAddtocart(e)}
+            >
               Add to cart
             </button>
             <button className="w-full py-3 text-xl uppercase border cursor-pointer">

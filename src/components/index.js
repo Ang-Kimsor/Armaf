@@ -9,3 +9,4 @@ export { default as SmallHero } from "./Collections/SmallHero";
 export { default as ProductCard } from "./Collections/ProductCard";
 export { default as DropDown } from "./Collections/Drop";
 export { default as ImagePreview } from "./Collections/ImagePreview";
+export { default as CartWidget } from "./Collections/Cart";
