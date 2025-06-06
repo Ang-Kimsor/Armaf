@@ -1,7 +1,7 @@
 export const NavbarData = [
   {
-    name: "New",
-    submenu: ["New Launches"],
+    name: "All",
+    submenu: ["All Products"],
   },
   {
     name: "Fragrances",

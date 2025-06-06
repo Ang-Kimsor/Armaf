@@ -9,9 +9,12 @@ const Collections = () => {
   category = category.replaceAll("-", " ");
 
   const maxPrice = useMemo(() => {
-    const prices = ProductData.filter(
-      (p) => p.category.toLowerCase() === category.toLowerCase()
-    ).map((p) => p.price);
+    let prices = ProductData.map((p) => p.price);
+    if (category != "All Products") {
+      prices = ProductData.filter(
+        (p) => p.category.toLowerCase() === category.toLowerCase()
+      ).map((p) => p.price);
+    }
     return prices.length ? Math.max(...prices) : 100;
   }, [category]);
 
@@ -48,9 +51,12 @@ const Collections = () => {
     const small = HeroSmallCollections.filter(
       (c) => c.category.toLowerCase() === category.toLowerCase()
     );
-    const pdata = ProductData.filter(
-      (c) => c.category.toLowerCase() === category.toLowerCase()
-    );
+    let pdata = ProductData;
+    if (category != "All Products") {
+      pdata = ProductData.filter(
+        (c) => c.category.toLowerCase() === category.toLowerCase()
+      );
+    }
     setBigHeroData(big);
     setSmallHeroData(small);
     setFilteredProducts(pdata);
@@ -71,9 +77,12 @@ const Collections = () => {
   }, [category, maxPrice]);
 
   const filtered = useMemo(() => {
-    let data = ProductData.filter(
-      (p) => p.category.toLowerCase() === category.toLowerCase()
-    );
+    let data = ProductData;
+    if (category != "All Products") {
+      data = ProductData.filter(
+        (p) => p.category.toLowerCase() === category.toLowerCase()
+      );
+    }
 
     if (availability === "In Stock") data = data.filter((p) => p.stock > 0);
     else if (availability === "Out of Stock")

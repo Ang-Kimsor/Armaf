@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ id, name, category, price, stock, img }) => {
   return (
     <Link
-      to={`${name.replaceAll(" ", "-").toLowerCase()}`}
+      to={`/Collections/${category.replaceAll(" ", "-").toLowerCase()}/${name
+        .replaceAll(" ", "-")
+        .toLowerCase()}`}
       className="relative p-2 border border-black/20"
     >
       <div className="flex items-center justify-center mb-4 overflow-hidden">

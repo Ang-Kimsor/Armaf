@@ -20,12 +20,12 @@ export const VideoHeroData = {
 export const ImageHeroData1 = [
   {
     name: "club de nuit",
-    path: "",
+    path: "club de nuit",
     image: IMGHERO1,
   },
   {
     name: "precieux",
-    path: "",
+    path: "precieux",
     image: IMGHERO2,
   },
 ];
@@ -35,51 +35,51 @@ export const ImageProductHeroData1 = [
     price: 34.99,
     stock: true,
     image: IMGPRODUCT1,
-    path: "",
+    path: "/Collections/club-de-nuit/club-de-nuit-intense-man",
   },
   {
     name: "Club de nuit iconic",
     price: 44.99,
     stock: false,
     image: IMGPRODUCT2,
-    path: "",
+    path: "/Collections/club-de-nuit/club-de-nuit-iconic",
   },
   {
     name: "Club de nuit untold",
     price: 14.99,
     stock: false,
     image: IMGPRODUCT3,
-    path: "",
+    path: "/Collections/club-de-nuit/club-de-nuit-untold",
   },
 ];
 export const ImageHeroData2 = [
   {
     name: "bucephalus",
-    path: "",
+    path: "bucephalus",
     image: IMGHERO3,
   },
   {
     name: "armaf niche",
-    path: "",
+    path: "armaf",
     image: IMGHERO4,
   },
 ];
 export const ImageHeroData3 = [
   {
     name: "odyssey",
-    path: "",
+    path: "odyssey",
     image: IMGHERO5,
   },
   {
     name: "armaf tag",
-    path: "",
+    path: "armaf",
     image: IMGHERO6,
   },
 ];
 export const ImageBgHeroData = {
   name: "Oros",
   image: IMGBGHERO,
-  path: "",
+  path: "oros",
 };
 export const ImageProductHeroData2 = [
   {
@@ -87,33 +87,33 @@ export const ImageProductHeroData2 = [
     price: 69.99,
     stock: false,
     image: IMGPRODUCT4,
-    path: "",
+    path: "/Collections/odyssey/odyssey-aqua",
   },
   {
     name: "odyssey aoud",
     price: 49.99,
     stock: false,
     image: IMGPRODUCT5,
-    path: "",
+    path: "/Collections/odyssey/odyssey-aoud",
   },
   {
     name: "odyssey tyrant",
     price: 49.99,
     stock: false,
     image: IMGPRODUCT6,
-    path: "",
+    path: "/Collections/odyssey/odyssey-tyrant",
   },
 ];
 
 export const ImageHeroData4 = [
   {
     name: "",
-    path: "",
+    path: "All Products",
     image: IMGHERO7,
   },
   {
     name: "",
-    path: "",
+    path: "All Products",
     image: IMGHERO8,
   },
 ];

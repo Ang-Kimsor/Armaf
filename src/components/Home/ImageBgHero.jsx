@@ -6,18 +6,18 @@ const ImageBgHero = ({ name, path, image }) => {
         className="relative w-full h-[550px] bg-cover bg-center bg-no-repeat lg:bg-fixed mt-3"
         style={{ backgroundImage: `url(${image})` }}
       >
-        <div className="absolute top-2/3 -translate-y-1/2 left-10">
-          <p className="text-xl font-medium text-white uppercase tracking-wider mb-3">
+        <div className="absolute -translate-y-1/2 top-2/3 left-10">
+          <p className="mb-3 text-xl font-medium tracking-wider text-white uppercase">
             {name}
           </p>
           <Link
-            to={path}
-            className="relative inline-block overflow-hidden border border-white px-8 py-3 text-white transition-all ease-linear uppercase text-sm font-light tracking-wider group"
+            to={`Collections/${path}`}
+            className="relative inline-block px-8 py-3 overflow-hidden text-sm font-light tracking-wider text-white uppercase transition-all ease-linear border border-white group"
           >
             <span className="relative z-10 group-hover:text-black">
               Shop Now
             </span>
-            <span className="absolute inset-0 bg-white scale-x-0 origin-left transition-transform duration-300 ease-linear group-hover:scale-x-100 group-hover:origin-left group-hover:transition-transform"></span>
+            <span className="absolute inset-0 transition-transform duration-300 ease-linear origin-left scale-x-0 bg-white group-hover:scale-x-100 group-hover:origin-left group-hover:transition-transform"></span>
           </Link>
         </div>
       </section>
