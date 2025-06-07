@@ -47,11 +47,40 @@ const Detail = () => {
         gender: Data.gender,
       },
     });
-    setTimeout(() => setCart(false), 3000);
+    setTimeout(() => {
+      setCart(false);
+    }, 3000);
   };
   console.log(Cart);
   return (
     <>
+      <button
+        className="w-[50px] h-[50px] bg-blue-500 ml-10"
+        onClick={() => {
+          dispatchCart({
+            type: "DECREASE",
+            payload: {
+              id: Data.id,
+            },
+          });
+        }}
+      >
+        -
+      </button>
+      <button
+        className="w-[50px] h-[50px] bg-blue-500 ml-10"
+        onClick={() => {
+          dispatchCart({
+            type: "INCREASE",
+            payload: {
+              id: Data.id,
+              stock: Data.stock,
+            },
+          });
+        }}
+      >
+        +
+      </button>
       {preview && (
         <ImagePreview img={Data.img} setFalse={() => setPreview(false)} />
       )}
@@ -157,7 +186,17 @@ const Detail = () => {
             >
               Add to cart
             </button>
-            <button className="w-full py-3 text-xl uppercase border cursor-pointer">
+            <button
+              className="w-full py-3 text-xl uppercase border cursor-pointer"
+              onClick={() => {
+                dispatchCart({
+                  type: "REMOVE",
+                  payload: {
+                    id: Data.id,
+                  },
+                });
+              }}
+            >
               Buy Now
             </button>
           </div>

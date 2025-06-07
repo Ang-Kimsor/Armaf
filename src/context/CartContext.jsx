@@ -1,10 +1,10 @@
 import { useReducer, useContext, createContext, useEffect } from "react";
 const CartContext = createContext();
 const cartReducer = (state, action) => {
+  const existing = state.find((item) => item.id === action.payload.id);
   switch (action.type) {
     case "ADD":
       if (action.payload.stock == 0) return state;
-      const existing = state.find((item) => item.id == action.payload.id);
       if (existing) {
         let addQty = existing.qty + action.payload.qty;
         if (addQty > existing.stock) return state;
@@ -15,7 +15,20 @@ const cartReducer = (state, action) => {
         return [...state, action.payload];
       }
     case "REMOVE":
-      break;
+      return state.filter((item) => item.id != action.payload.id);
+    case "INCREASE":
+      if (existing.qty + 1 > action.payload.stock) {
+        return state;
+      }
+      return state.map((item) =>
+        item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item
+      );
+    case "DECREASE":
+      if (existing.qty - 1 == 0)
+        return state.filter((item) => item.id != action.payload.id);
+      return state.map((item) =>
+        item.id === action.payload.id ? { ...item, qty: item.qty - 1 } : item
+      );
   }
 };
 const LoadCartFromLocalStorage = () => {
