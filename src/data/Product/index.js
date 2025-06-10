@@ -544,7 +544,7 @@ export const ProductData = [
   },
   {
     id: 34,
-    des: "A captivating blend of elegance and allure, this fragrance opens with fresh citrus and delicate floral notes, followed by a heart of warm spices and soft rose petals. The base reveals a sensual mix of creamy sandalwood, amber, and a whisper of musk, leaving a lasting impression of sophistication. Perfect for day or night, it embodies confidence, charm, and timeless beauty in every spritz.",
+    name: "ETER DESERT BREEZE",
     category: "eter",
     price: 59.99,
     title: "Sahara Drift",
@@ -558,7 +558,7 @@ export const ProductData = [
   },
   {
     id: 35,
-    des: "A captivating blend of elegance and allure, this fragrance opens with fresh citrus and delicate floral notes, followed by a heart of warm spices and soft rose petals. The base reveals a sensual mix of creamy sandalwood, amber, and a whisper of musk, leaving a lasting impression of sophistication. Perfect for day or night, it embodies confidence, charm, and timeless beauty in every spritz.",
+    name: "ETER DESERT FLOWER",
     category: "eter",
     price: 59.99,
     title: "Blooming Dunes",

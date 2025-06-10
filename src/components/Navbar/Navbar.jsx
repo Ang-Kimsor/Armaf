@@ -127,7 +127,9 @@ const Navbar = () => {
           <div className={`flex gap-3 items-center text-black/70`}>
             <i className="text-xl bi bi-search"></i>
             <i className="hidden text-2xl bi bi-person lg:block"></i>
-            <i className="text-xl bi bi-bag"></i>
+            <Link to={"Cart"}>
+              <i className="text-xl bi bi-bag"></i>
+            </Link>
           </div>
         </div>
         <div className="lg:flex hidden h-[40px] justify-center items-center w-full">
