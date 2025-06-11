@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 const CartPage = () => {
   const { Cart, dispatchCart } = useCart();
+  document.title = "Cart";
   const handleDecrease = (ID) => {
     dispatchCart({
       type: "DECREASE",
@@ -30,7 +31,6 @@ const CartPage = () => {
   const total = Cart.reduce((sum, item) => {
     return sum + item.price * item.qty;
   }, 0);
-  console.log(total);
   return (
     <main className="w-full">
       {Cart.length == 0 ? (
@@ -38,7 +38,7 @@ const CartPage = () => {
           <h1 className="text-5xl">Your cart is empty</h1>
           <Link
             to={"/"}
-            className="px-8 py-3 bg-black text-white tracking-wider"
+            className="px-8 py-3 tracking-wider text-white bg-black"
           >
             Continue Shopping
           </Link>
@@ -51,18 +51,18 @@ const CartPage = () => {
         <div className="w-full p-2 my-5">
           <div className="w-full h-[40px] flex justify-between items-center">
             <h1 className="text-3xl">Your Cart</h1>
-            <Link className="text-sm underline text-black/60">
+            <Link to={"/"} className="text-sm underline text-black/60">
               Continue Shopping
             </Link>
           </div>
-          <div className="py-5 my-2 border-y-2 border-black/20 flex flex-col gap-3">
+          <div className="flex flex-col gap-3 py-5 my-2 border-y-2 border-black/20">
             {Cart.map(
               (
                 { id, name, category, price, qty, stock, img, gender },
                 index
               ) => (
                 <div key={index} className="w-full lg:h-[150px]">
-                  <div className="w-full gap-4 flex items-center">
+                  <div className="flex items-center w-full gap-4">
                     <img src={img} alt="" className="size-[150px]" />
                     <div className="[width:calc(100%-150px)] flex md:flex-row flex-col md:items-center gap-4 pr-2">
                       <div className="flex gap-1 tracking-wider flex-col md:w-[60%]">
@@ -95,15 +95,15 @@ const CartPage = () => {
                           +
                         </div>
                       </div>
-                      <span className="w-[5%]">
-                        <i
-                          className="bi bi-trash bg-red-500/90 cursor-pointer text-white p-2 rounded"
-                          onClick={() => handleRemove(id)}
-                        ></i>
-                      </span>
                       <p className="md:text-sm text-[13px] md:w-[10%]">
                         Total: ${(qty * price).toFixed(2)}
                       </p>
+                      <span className="w-[5%]">
+                        <i
+                          className="text-4xl cursor-pointer bi bi-x"
+                          onClick={() => handleRemove(id)}
+                        ></i>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -113,12 +113,15 @@ const CartPage = () => {
           <p className="text-xl text-black/80">
             Estimated total: ${total.toFixed(2)}
           </p>
-          <p className="text-sm text-black/30">
+          <p className="mb-5 text-sm text-black/30">
             Taxes, discounts and shipping calculated at checkout.
           </p>
-          <button className="px-10 mt-5 cursor-pointer bg-black text-white py-3">
+          <Link
+            to={"/Checkout"}
+            className="px-10 py-3 mt-5 text-white bg-black cursor-pointer"
+          >
             Checkout
-          </button>
+          </Link>
         </div>
       )}
     </main>

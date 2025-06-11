@@ -35,7 +35,10 @@ const Cart = ({ img, name, qty, price, cart, full }) => {
           </div>
         </div>
         <div className="w-full h-[40px] flex items-center gap-3 px-2 uppercase text-sm">
-          <Link className="bg-white text-black border w-1/2 justify-center h-full flex items-center">
+          <Link
+            to={"/Cart"}
+            className="bg-white text-black border w-1/2 justify-center h-full flex items-center"
+          >
             View Cart
           </Link>
           <Link className="bg-green-500 w-1/2 justify-center h-full flex items-center text-white">

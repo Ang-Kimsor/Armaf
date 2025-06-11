@@ -8,6 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [submenusm, setSubmenusm] = useState(null);
   const [submenulg, setSubmenulg] = useState(null);
+  const [search, setSearch] = useState(false);
   const [opened, setOpened] = useState(false);
   const handleSubmenuLgClick = (e, index) => {
     e.preventDefault();
@@ -34,6 +35,20 @@ const Navbar = () => {
   }, [opened]);
   return (
     <>
+      <div
+        className={`${
+          search ? "h-[60px] visible opacity-100" : "h-0 invisible opacity-0"
+        } w-full flex items-center justify-center transition-all duration-300`}
+      >
+        <div className="relative md:w-[330px] w-[90%]">
+          <input
+            type="text"
+            className="border h-[40px] rounded outline-none px-2 pr-8 md:w-[330px] w-full"
+            placeholder="Search"
+          />
+          <i className="bi bi-search absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"></i>
+        </div>
+      </div>
       <header className="w-full h-[40px] bg-white flex items-center justify-center md:text-[13px] text-[9px] tracking-wider text-black/80">
         FREE SHIPPING ON ALL ORDERS | U.S. ONLY
       </header>
@@ -125,7 +140,10 @@ const Navbar = () => {
           />
 
           <div className={`flex gap-3 items-center text-black/70`}>
-            <i className="text-xl bi bi-search"></i>
+            <i
+              className="text-xl bi bi-search cursor-pointer"
+              onClick={() => setSearch(!search)}
+            ></i>
             <i className="hidden text-2xl bi bi-person lg:block"></i>
             <Link to={"Cart"}>
               <i className="text-xl bi bi-bag"></i>

@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { ProductData } from "./../data/Product";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { CartWidget, DropDown, ImagePreview, ProductCard } from "../components";
 import { useCart } from "../context/CartContext";
 const Detail = () => {
   const location = useLocation();
-  console.log(location);
   const { Cart, dispatchCart } = useCart();
   const [qty, setQTy] = useState(1);
   const [preview, setPreview] = useState(false);
@@ -59,7 +58,6 @@ const Detail = () => {
       setCart(false);
     }, 3000);
   };
-  console.log(Cart);
   return (
     <>
       {preview && (
@@ -167,9 +165,12 @@ const Detail = () => {
             >
               Add to cart
             </button>
-            <button className="w-full py-3 text-xl uppercase border cursor-pointer">
-              Buy Now
-            </button>
+            <Link
+              to={"/Checkout"}
+              className="w-full py-3 text-xl uppercase border cursor-pointer text-center"
+            >
+              Checkout Now
+            </Link>
           </div>
         </article>
         <h1 className="my-5 text-3xl text-center">You may also like</h1>
