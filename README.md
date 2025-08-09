@@ -44,7 +44,7 @@
 <p id="about-the-project">
 </p>
 
-## About The Project
+## About The Project 📑
 
 [![Project Screenshot][project-screenshot]](https://example.com)
 
@@ -62,7 +62,7 @@ This project is perfect for learning e-commerce UI/UX design, practicing React d
 <p id="built-with">
 </p>
 
-### Tools & Technologies
+### Tools & Technologies 🛠️
 
 [![HTML][HTML]][HTML-url]
 [![CSS][CSS]][CSS-url]
