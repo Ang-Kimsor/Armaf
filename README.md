@@ -44,7 +44,7 @@
 <p id="about-the-project">
 </p>
 
-## About The Project 📑
+## About The Project 📖
 
 [![Project Screenshot][project-screenshot]](https://example.com)
 
