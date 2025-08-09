@@ -1,6 +1,6 @@
 <!-- PROJECT LOGO -->
 <div align="center">
-  <a href="https://github.com/YOUR_GITHUB_USERNAME/ArmafClone">
+  <a href="https://github.com/Kimsor1111/Armaf">
     <img src="src/assets/logo.jpg" alt="Logo" width="150" height="150">
   </a>
 
@@ -11,7 +11,7 @@
     Built with responsive design, smooth navigation, and a clean UI to help customers explore and shop perfumes effortlessly.
     <br />
     <br />
-    <a href="https://your-armaf-clone-demo-link.com/">View Demo</a>
+    <a href="https://armaf.vercel.app/">View Demo</a>
   </p>
 </div>
 
