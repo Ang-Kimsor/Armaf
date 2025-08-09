@@ -1,17 +1,17 @@
 <!-- PROJECT LOGO -->
 <div align="center">
-  <a href="https://github.com/Kimsor1111/PteasDecor">
-    <img src="src/assets/Logo/PteasDecor.png" alt="Logo" width="250" height="250">
+  <a href="https://github.com/YOUR_GITHUB_USERNAME/ArmafClone">
+    <img src="src/assets/logo.jpg" alt="Logo" width="150" height="150">
   </a>
 
-  <h1 align="center">🏠 PteasDecor 🏠</h1>
+  <h1 align="center">💎 Armaf Perfume E-Commerce Clone 💎</h1>
 
   <p align="center">
-    A modern ReactJS home decoration products e-commerce website, offering stylish and functional décor for every home.
-    Built with a responsive design, intuitive navigation, and a seamless shopping experience to help customers find the perfect pieces for their living spaces.
+    A modern ReactJS clone of the official Armaf perfumes website, offering a premium and elegant shopping experience for luxury fragrances.
+    Built with responsive design, smooth navigation, and a clean UI to help customers explore and shop perfumes effortlessly.
     <br />
     <br />
-    <a href="https://pteasdecor.netlify.app/">View Demo</a>
+    <a href="https://your-armaf-clone-demo-link.com/">View Demo</a>
   </p>
 </div>
 
@@ -48,17 +48,16 @@
 
 [![Project Screenshot][project-screenshot]](https://example.com)
 
-There are plenty of e-commerce projects out there, but I didn’t find one that perfectly fit a modern home decoration store built with ReactJS — so I created PteasDecor. This project aims to be a clean, easy-to-use template for anyone building a home décor shopping site.
+This project is a ReactJS-based **clone of the Armaf perfumes website**, designed to replicate the premium look, feel, and functionality of the original site while being developer-friendly for customization.
 
-Here’s why PteasDecor stands out:
+Key features of this clone:
 
-- It focuses on showcasing beautiful home decoration products with a user-friendly ReactJS interface.
+- Elegant and **luxury-inspired UI** matching Armaf’s brand style.
+- Fully **responsive design** for mobile, tablet, and desktop.
+- **Reusable components** for products, categories, and banners.
+- Optimized **navigation and product display** for a smooth shopping experience.
 
-- It saves you time by providing a well-organized folder structure and reusable components.
-
-- It embraces best practices like component-based architecture and responsive design 😄.
-
-Of course, every project has its own unique needs, so I’m continuously improving PteasDecor. Feel free to contribute by forking, opening an issue, or sending a pull request. Thanks to everyone who helps make this project better!
+This project is perfect for learning e-commerce UI/UX design, practicing React development, or building your own fragrance shop.
 
 <p id="built-with">
 </p>
@@ -72,7 +71,6 @@ Of course, every project has its own unique needs, so I’m continuously improvi
 [![JS][JS]][JS-url]
 [![React][React.js]][React-url]
 [![ReactRouter][ReactRouter.js]][ReactRouter-url]
-[![ReactRedux][ReactRedux.js]][ReactRedux-url]
 
 <!-- GETTING STARTED -->
 <p id="getting-started">
@@ -80,18 +78,16 @@ Of course, every project has its own unique needs, so I’m continuously improvi
 
 ## Getting Started 🚀
 
-Follow these steps to set up and run the PteasDecor project on your local machine for development and testing purposes.
+Follow these steps to run the Armaf Clone locally for development or testing.
 
 <p id="prerequisites">
 </p>
 
 ### Prerequisites ✅
 
-Make sure you have the following installed to run this project:
-
-- **[Node.js](https://nodejs.org/)** (version 14 or higher recommended)
-- **[npm](https://www.npmjs.com/)** (comes bundled with Node.js) or **[yarn](https://yarnpkg.com/)**
-- A modern web browser (Chrome, Firefox, Edge, etc.)
+- **[Node.js](https://nodejs.org/)** (version 14+ recommended)
+- **npm** or **yarn**
+- Modern browser (Chrome, Firefox, Edge, etc.)
 
 <p id="installation">
 </p>
@@ -100,49 +96,43 @@ Make sure you have the following installed to run this project:
 
 1. Clone the repository
 
+    ```sh
+     git clone https://github.com/Kimsor1111/Armaf.git
+    ```
+
+2. Open Armaf Project
    
-sh
-   git clone https://github.com/Kimsor1111/PteasDecor.git
-
-
-2. Open PteasDecor Project
-
-   
-sh
-   cd PteasDecor
-
+    ```sh
+     cd Armaf
+    ```
 
 3. Install dependencies
 
    - Using npm:
 
-     
-sh
-     npm install
-
+     ```sh
+       npm install
+     ```
 
    - or using yarn:
 
-     
-sh
-     yarn install
-
+     ```sh
+       yarn install
+     ```
 
 4. Start the development server
 
    - Using npm:
 
-     
-sh
-     npm run dev
-
+      ```sh
+        npm run dev
+      ```
 
    - or using yarn:
 
-     
-sh
-     yarn start
-
+     ```sh
+       yarn start
+     ```
 
 5. Open your browser and navigate to localhost url to see the app running.
 
@@ -153,17 +143,15 @@ sh
 
 ### Here is PteasDecor folders structure:
 
-sh
-
-├── /public                     # Static files like images, icons & _redirects
+```sh
 
 ├── /src                        # Source code files
-
-│   ├── /app                    # Redux store setup (actions, reducers, slices)
 
 │   ├── /assets                 # Images, fonts, and other media assets
 
 │   ├── /components             # Reusable React components or UI elements
+
+│   ├── /context                # Set up for reducer, action and globe context  
 
 │   ├── /data                   # Static data for whole website (Product, Footer, Navbar, ...)
 
@@ -182,7 +170,7 @@ sh
 ├── README.md                   # Project documentation
 
 └── .gitignore                  # Files and folders to ignore in git
-
+```
 
 <p id="usage">
 </p>
@@ -191,19 +179,18 @@ sh
 
 ## Usage 🧑‍💻
 
-Use the app to browse home decoration products, view detailed product information, add items to your cart, proceed to checkout, track orders, add products to your wishlist, and filter products by various criteria. This app is ideal for testing UI features or customizing your own online store.
+Use the app to explore luxury perfume collections, view detailed fragrance descriptions, add items to your cart, proceed to checkout, and filter products by categories or collections.  
+This clone is ideal for testing e-commerce UI features or customizing your own perfume shop.
 
 <p id="contributors">
 </p>
-
-<!-- CONTRIBUTORS -->
 
 ## Contributors 🤝
 
 Contributions are welcome! Feel free to fork the repo, create feature branches, and submit pull requests. Please open issues for bugs or feature requests.
 
-<a href="https://github.com/Kimsor1111/PteasDecor/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Kimsor1111/PteasDecor" alt="contrib.rocks image" />
+<a href="https://github.com/Kimsor1111/Armaf/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Kimsor1111/Armaf" alt="contrib.rocks image" />
 </a>
 
 <p id="contact">
@@ -215,11 +202,7 @@ Contributions are welcome! Feel free to fork the repo, create feature branches, 
 
 **Ang Kimsor** - [Telegram](https://t.me/Thirtieth_October) - [angkimsor@gmail.com](mailto:angkimsor@gmail.com) - **Call Me ☎️ +85587932289**
 
-**Nak Danin** - [Telegram](https://nakdanin) - [nakdanin@gmail.com](mailto:nakdanin@gmail.com) - **Call Me ☎️**
-
-**Heng Ousa** - [Telegram](https://hengousa) - [hengousa@gmail.com](mailto:hengousa@gmail.com) - **Call Me ☎️**
-
-Project Link: [https://github.com/Kimsor1111/PteasDecor](https://github.com/Kimsor1111/PteasDecor)
+Project Link: [https://github.com/Kimsor1111/PteasDecor](https://github.com/Kimsor1111/Armaf)
 
 <p id="acknowledgments">
 </p>
@@ -228,17 +211,17 @@ Project Link: [https://github.com/Kimsor1111/PteasDecor](https://github.com/Kims
 
 ## Acknowledgements 🙏
 
-- Thanks to the React community for the fantastic library and support.
-- Inspiration and UI ideas from various home decor websites and e-commerce templates.
-- Open-source projects and tutorials that helped guide this project’s development.
+- Thanks to the ReactJS community for the powerful tools and support.
+- Original design inspiration from the official [Armaf Perfumes](https://armaf.com/) website.
+- Open-source projects and tutorials that guided this project’s development.
 - [Shields.io](https://shields.io/) for awesome badges used in this README.
 - Icons from [Font Awesome](https://fontawesome.com/) and other free icon libraries.
-- Images from [Alibaba](https://www.alibaba.com/) and other resources ecommerce website.
+- Images sourced from Armaf’s official site (for educational only).
 - Special thanks to friends, mentors, or contributors who provided feedback or assistance.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[project-screenshot]: src/assets/Logo/image.png
+[project-screenshot]: src/assets/screenshot.png
 [HTML]: https://img.shields.io/badge/HTML-20232A?style=for-the-badge&logo=html5&logoColor=E34F26
 [HTML-url]: https://www.w3schools.com/html/
 [CSS]: https://img.shields.io/badge/CSS-20232A?style=for-the-badge&logo=css&logoColor=1572B6
