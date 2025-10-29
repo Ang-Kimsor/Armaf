@@ -63,8 +63,6 @@ export const ImageHeroData2 = [
     path: "armaf",
     image: IMGHERO4,
   },
-];
-export const ImageHeroData3 = [
   {
     name: "odyssey",
     path: "odyssey",
@@ -105,7 +103,7 @@ export const ImageProductHeroData2 = [
   },
 ];
 
-export const ImageHeroData4 = [
+export const ImageHeroData3 = [
   {
     name: "",
     path: "All Products",

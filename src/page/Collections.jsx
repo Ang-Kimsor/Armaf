@@ -1,9 +1,13 @@
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { HeroCollections, HeroSmallCollections } from "./../data/Collections";
 import { ProductData } from "../data/Product";
-import { BigHero, SmallHero, ProductCard } from "../components";
-import { useEffect, useMemo, useState } from "react";
-
+const BigHero = lazy(() => import("../components/Collections/BigHero"));
+const SmallHero = lazy(() => import("../components/Collections/SmallHero"));
+const ProductCard = lazy(() => import("../components/Collections/ProductCard"));
+import { motion } from "framer-motion";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 const Collections = () => {
   let { category } = useParams();
   category = category.replaceAll("-", " ");
@@ -111,7 +115,10 @@ const Collections = () => {
       default:
         break;
     }
-
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     return data;
   }, [availability, gender, pricemin, pricemax, sortby, category]);
 
@@ -134,67 +141,101 @@ const Collections = () => {
     setPriceopen(false);
   };
 
-  if (loading) {
-    return (
-      <main
-        className="w-full h-[400px] flex items-center justify-center"
-        role="status"
-      >
-        <svg
-          aria-hidden="true"
-          className="inline text-gray-200 md:size-20 size-10 animate-spin fill-gray-600"
-          viewBox="0 0 100 101"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908Z"
-            fill="currentColor"
-          />
-          <path
-            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367012 46.6976 0.446843 41.7345 1.27873C39.2613 1.69046 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52673 55.5402 10.0491C60.8641 10.7766 65.9926 12.5457 70.6331 15.2552C75.2736 17.9648 79.3347 21.5581 82.5849 25.7572C84.9175 28.6851 86.7996 32.0957 88.1811 35.7993C89.083 38.3667 91.5421 39.6781 93.9676 39.0409Z"
-            fill="currentFill"
-          />
-        </svg>
-        <span className="sr-only">Loading...</span>
-      </main>
-    );
-  }
-
   return (
     <main className="flex flex-col items-center">
-      <h1 className="my-4 text-2xl tracking-wider text-center uppercase md:text-4xl text-black/80 font-extralight">
+      <motion.h1
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className="my-4 text-2xl tracking-wider text-center uppercase md:text-4xl text-black/80 font-extralight"
+      >
         {category}
-      </h1>
+      </motion.h1>
 
       {category !== "New Launches" && bigHeroData && (
         <>
-          <section className="w-full">
-            <BigHero img={bigHeroData.img} name={bigHeroData.name} />
-          </section>
-          <section className="lg:w-[760px] lg:mt-10 lg:mb-16 mt-10 mb-32 grid lg:gap-[50px] gap-[150px]">
+          <Suspense
+            fallback={
+              <Skeleton
+                className="mb-8"
+                width="100vw"
+                height="600px"
+                baseColor="#B0B0B0"
+              />
+            }
+          >
+            <motion.section
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="w-full"
+            >
+              <BigHero img={bigHeroData.img} name={bigHeroData.name} />
+            </motion.section>
+          </Suspense>
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.3,
+                },
+              },
+            }}
+            className="lg:w-[760px] lg:mt-10 lg:mb-16 mt-10 mb-32 grid lg:gap-[50px] gap-[150px]"
+          >
             {smallHeroData.map(
               ({ category, title, des, imgbig, imgsmall }, index) => (
-                <SmallHero
+                <motion.div
                   key={index}
-                  category={category}
-                  title={title}
-                  des={des}
-                  imgbig={imgbig}
-                  imgsmall={imgsmall}
-                  reverse={index % 2 !== 0}
-                />
+                  variants={{
+                    hidden: { opacity: 0, y: -10 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.6, ease: "easeInOut" },
+                    },
+                  }}
+                >
+                  <SmallHero
+                    category={category}
+                    title={title}
+                    des={des}
+                    imgbig={imgbig}
+                    imgsmall={imgsmall}
+                    reverse={index % 2 !== 0}
+                  />
+                </motion.div>
               )
             )}
-          </section>
+          </motion.section>
         </>
       )}
 
       <section className="w-[98.5%] z-[10]">
         <div className="flex flex-col w-full gap-5 py-10 md:justify-between md:flex-row">
           <div className="flex flex-col gap-3 text-sm md:items-center md:flex-row text-black/70 md:text-md">
-            <h1 className="px-1 tracking-wide">Filter: </h1>
-            <div className="flex justify-between md:gap-3">
+            <motion.h1
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="px-1 tracking-wide"
+            >
+              Filter:{" "}
+            </motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="flex justify-between md:gap-3"
+            >
               <div className="relative">
                 <div
                   className="flex items-center gap-2 px-1 bg-white cursor-pointer text-black/70 hover:underline"
@@ -306,12 +347,23 @@ const Collections = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
           <div className="flex flex-row items-center justify-between gap-2 px-1 text-sm text-black/70 text-nowrap md:text-md">
             <div className="flex">
-              <h1>Sort by: </h1>
-              <select
+              <motion.h1
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
+                Sort by:{" "}
+              </motion.h1>
+              <motion.select
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
                 className="px-3 text-sm border-none outline-0"
                 defaultValue={sortby}
                 onChange={(e) => setSortby(e.target.value)}
@@ -322,17 +374,23 @@ const Collections = () => {
                     {name}
                   </option>
                 ))}
-              </select>
+              </motion.select>
             </div>
-            <p className="text-sm text-black/50">
+            <motion.p
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="text-sm text-black/50"
+            >
               {currentProducts.length} Products
-            </p>
+            </motion.p>
           </div>
         </div>
       </section>
       {currentProducts.length == 0 ? (
         <div className="h-[400px] flex items-center justify-center flex-col w-full text-center">
-          <h1>No Product Found In This Filter</h1>
+          <h1>No Products Found In This Filter</h1>
           <button
             className="px-5 py-2 mt-5 font-semibold text-white rounded cursor-pointer bg-black/50"
             onClick={() => {
@@ -349,29 +407,63 @@ const Collections = () => {
         </div>
       ) : (
         <>
-          <section className="w-[98.5%] grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 z-[9]">
-            {currentProducts.map(
-              ({ id, name, category, price, stock, img }) => (
-                <ProductCard
-                  key={id}
-                  name={name}
-                  category={category}
-                  price={price}
-                  stock={stock}
-                  img={img}
-                />
-              )
+          <Suspense
+            fallback={
+              <>
+                <section className="w-[98.5%] grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 z-[9]">
+                  {currentProducts.map(({ id }) => (
+                    <Skeleton key={id} height="340px" baseColor="#B0B0B0" />
+                  ))}
+                </section>
+              </>
+            }
+          >
+            {loading ? (
+              <section className="w-[98.5%] grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 z-[9]">
+                {currentProducts.map(({ id }) => (
+                  <Skeleton key={id} height="340px" />
+                ))}
+              </section>
+            ) : (
+              <section className="w-[98.5%] grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 z-[9]">
+                {currentProducts.map(
+                  ({ id, name, category, price, stock, img }) => (
+                    <motion.div
+                      key={id}
+                      initial={{ opacity: 0, y: -10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
+                    >
+                      <ProductCard
+                        name={name}
+                        category={category}
+                        price={price}
+                        stock={stock}
+                        img={img}
+                      />
+                    </motion.div>
+                  )
+                )}
+              </section>
             )}
-          </section>
-          <section className="w-full h-[30px] mt-5 flex justify-center items-center">
+          </Suspense>
+          <motion.section
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="w-full h-[30px] mt-5 flex justify-center items-center"
+          >
             <div className="flex items-center h-full gap-3 w-fit">
               <i
                 className={`${
                   currentPage == 1 && "hidden"
                 } bi bi-arrow-left md:text-[12px] text-md text-black/80 cursor-pointer`}
-                onClick={() =>
-                  setCurrentPage(currentPage > 1 ? currentPage - 1 : 1)
-                }
+                onClick={() => {
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  setCurrentPage(currentPage > 1 ? currentPage - 1 : 1);
+                }}
               ></i>
               {[...Array(totalPages)].map((_, i) => (
                 <div
@@ -395,14 +487,15 @@ const Collections = () => {
                 className={`${
                   currentPage == totalPages && "hidden"
                 } bi bi-arrow-right md:text-[12px] text-md text-black/80 cursor-pointer`}
-                onClick={() =>
+                onClick={() => {
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                   setCurrentPage(
                     currentPage < totalPages ? currentPage + 1 : totalPages
-                  )
-                }
+                  );
+                }}
               ></i>
             </div>
-          </section>
+          </motion.section>
         </>
       )}
     </main>

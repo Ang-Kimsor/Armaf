@@ -1,11 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Rootlayout from "./layout/RootLayout";
-import { Home, Collection, Detail, Cart, Checkout } from "./page";
+import ErrorLayout from "./layout/ErrorLayout";
+import { lazy } from "react";
+const Home = lazy(() => import("./page/Home"));
+const Collection = lazy(() => import("./page/Collections"));
+const Detail = lazy(() => import("./page/Detail"));
+const Cart = lazy(() => import("./page/CartPage"));
+const Checkout = lazy(() => import("./page/Checkout"));
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Rootlayout />,
-    errorElement: <h1>This is error</h1>,
+    errorElement: <ErrorLayout />,
     children: [
       {
         index: true,

@@ -2,10 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const ImageProduct = ({ name, price, stock, image, path, between }) => {
   return (
-    <Link
-      to={path}
-      className="rounded-[2px] border border-gray-500/20 py-5 group relative"
-    >
+    <Link to={path}>
       <div className="flex justify-center overflow-hidden">
         <img
           src={image}
@@ -14,7 +11,7 @@ const ImageProduct = ({ name, price, stock, image, path, between }) => {
         />
       </div>
       {stock && (
-        <span className="absolute px-2 left-0 top-3 text-white bg-black tracking-wider text-[7px] py-1 rounded-full mx-3 font-semibold">
+        <span className="w-[55px] absolute px-2 left-0 top-3 text-white bg-black tracking-wider text-[7px] py-1 rounded-full mx-3 font-semibold">
           SOLD OUT
         </span>
       )}

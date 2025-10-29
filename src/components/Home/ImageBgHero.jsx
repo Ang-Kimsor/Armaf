@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const ImageBgHero = ({ name, path, image }) => {
   return (
     <>
-      <section
+      <div
         className="relative w-full h-[550px] bg-cover bg-center bg-no-repeat lg:bg-fixed mt-3"
         style={{ backgroundImage: `url(${image})` }}
       >
@@ -20,7 +20,7 @@ const ImageBgHero = ({ name, path, image }) => {
             <span className="absolute inset-0 transition-transform duration-300 ease-linear origin-left scale-x-0 bg-white group-hover:scale-x-100 group-hover:origin-left group-hover:transition-transform"></span>
           </Link>
         </div>
-      </section>
+      </div>
     </>
   );
 };

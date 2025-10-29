@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "./../../assets/logo.jpg";
 import { Link } from "react-router-dom";
 import { NavbarData } from "../../data/Navbar";
-
+import { motion } from "framer-motion";
 const Navbar = () => {
   const navigate = useNavigate();
   const [submenusm, setSubmenusm] = useState(null);
@@ -35,6 +35,7 @@ const Navbar = () => {
   }, [opened]);
   return (
     <>
+      {/* Search */}
       <div
         className={`${
           search ? "h-[60px] visible opacity-100" : "h-0 invisible opacity-0"
@@ -49,9 +50,7 @@ const Navbar = () => {
           <i className="bi bi-search absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer"></i>
         </div>
       </div>
-      <header className="w-full h-[40px] bg-white flex items-center justify-center md:text-[13px] text-[9px] tracking-wider text-black/80">
-        FREE SHIPPING ON ALL ORDERS | U.S. ONLY
-      </header>
+      {/* Sidebar */}
       <aside
         className={`lg:hidden w-full ${
           opened ? "translate-x-0" : "-translate-x-full"
@@ -121,39 +120,111 @@ const Navbar = () => {
           <i className="cursor-pointer bi bi-tiktok"></i>
         </div>
       </aside>
+      {/* Header */}
+      <motion.header
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className="w-full h-[40px] bg-white flex items-center justify-center md:text-[13px] text-[9px] tracking-wider text-black/80"
+      >
+        FREE SHIPPING ON ALL ORDERS | U.S. ONLY
+      </motion.header>
+      {/* Navbar */}
       <nav
         className={`lg:h-[140px] h-[80px] sticky top-0 flex flex-col items-center z-[100] bg-white border-b border-black/20`}
       >
         <div className="lg:h-[100px] h-full w-full relative flex justify-between items-center px-5">
-          <i
+          <motion.i
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
             className={`bi bi-list cursor-pointer lg:opacity-0 lg:invisible text-3xl text-black/70`}
             onClick={() => {
               setOpened(true);
               setSubmenusm(null);
             }}
-          ></i>
-          <img
+          ></motion.i>
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
             onClick={() => navigate("/")}
             src={logo}
             alt="Armaf"
             className="lg:h-[70px] absolute left-1/2 transform -translate-x-1/2 h-[50px] cursor-pointer"
           />
 
-          <div className={`flex gap-3 items-center text-black/70`}>
-            <i
+          <motion.div
+            className={`flex gap-3 items-center text-black/70`}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.3,
+                },
+              },
+            }}
+          >
+            <motion.i
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { duration: 0.6, ease: "easeInOut" },
+                },
+              }}
               className="text-xl bi bi-search cursor-pointer"
               onClick={() => setSearch(!search)}
-            ></i>
-            <i className="hidden text-2xl bi bi-person lg:block"></i>
+            ></motion.i>
+            <motion.i
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { duration: 0.6, ease: "easeInOut" },
+                },
+              }}
+              className="hidden text-2xl bi bi-person lg:block"
+            ></motion.i>
             <Link to={"Cart"}>
-              <i className="text-xl bi bi-bag"></i>
+              <motion.i
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: { duration: 0.6, ease: "easeInOut" },
+                  },
+                }}
+                className="text-xl bi bi-bag"
+              ></motion.i>
             </Link>
-          </div>
+          </motion.div>
         </div>
         <div className="lg:flex hidden h-[40px] justify-center items-center w-full">
-          <ul className={`w-fit p-0 flex-row flex gap-5 text-black/70`}>
+          <motion.ul
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.3,
+                },
+              },
+            }}
+            className={`w-fit p-0 flex-row flex gap-5 text-black/70`}
+          >
             {NavbarData.map(({ name, submenu }, index) => (
-              <li
+              <motion.li
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: { duration: 0.6, ease: "easeInOut" },
+                  },
+                }}
                 key={index}
                 className="relative"
                 onClick={(e) => handleSubmenuLgClick(e, index)}
@@ -184,15 +255,25 @@ const Navbar = () => {
                     ))}
                   </ul>
                 </span>
-              </li>
+              </motion.li>
             ))}
 
-            <li className="group" onClick={() => setDefault}>
+            <motion.li
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { duration: 0.6, ease: "easeInOut" },
+                },
+              }}
+              className="group"
+              onClick={() => setDefault}
+            >
               <Link className="text-[13px] group-hover:underline uppercase flex items-center gap-1 justify-between tracking-widest cursor-pointer">
                 Store Location
               </Link>
-            </li>
-          </ul>
+            </motion.li>
+          </motion.ul>
         </div>
       </nav>
     </>
