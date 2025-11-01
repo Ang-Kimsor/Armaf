@@ -463,6 +463,10 @@ const Collections = () => {
                 onClick={() => {
                   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                   setCurrentPage(currentPage > 1 ? currentPage - 1 : 1);
+                  setLoading(true);
+                  setTimeout(() => {
+                    setLoading(false);
+                  }, 2000);
                 }}
               ></i>
               {[...Array(totalPages)].map((_, i) => (
@@ -478,6 +482,10 @@ const Collections = () => {
                   onClick={() => {
                     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                     setCurrentPage(i + 1);
+                    setLoading(true);
+                    setTimeout(() => {
+                      setLoading(false);
+                    }, 2000);
                   }}
                 >
                   {i + 1}
@@ -492,6 +500,10 @@ const Collections = () => {
                   setCurrentPage(
                     currentPage < totalPages ? currentPage + 1 : totalPages
                   );
+                  setLoading(true);
+                  setTimeout(() => {
+                    setLoading(false);
+                  }, 2000);
                 }}
               ></i>
             </div>
