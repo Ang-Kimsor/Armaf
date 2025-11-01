@@ -141,7 +141,7 @@ Follow these steps to run the Armaf Clone locally for development or testing.
 
 ## Folders Structure 📂
 
-### Here is PteasDecor folders structure:
+### Here is Armaf folders structure:
 
 ```sh
 
