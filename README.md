@@ -1,6 +1,6 @@
 <!-- PROJECT LOGO -->
 <div align="center">
-  <a href="https://github.com/Kimsor1111/Armaf">
+  <a href="https://github.com/Ang-Kimsor/Armaf">
     <img src="src/assets/logo.jpg" alt="Logo" width="150" height="150">
   </a>
 
@@ -97,7 +97,7 @@ Follow these steps to run the Armaf Clone locally for development or testing.
 1. Clone the repository
 
     ```sh
-     git clone https://github.com/Kimsor1111/Armaf.git
+     git clone https://github.com/Ang-Kimsor/Armaf.git
     ```
 
 2. Open Armaf Project
@@ -190,7 +190,7 @@ This clone is ideal for testing e-commerce UI features or customizing your own p
 Contributions are welcome! Feel free to fork the repo, create feature branches, and submit pull requests. Please open issues for bugs or feature requests.
 
 <a href="https://github.com/Kimsor1111/Armaf/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Kimsor1111/Armaf" alt="contrib.rocks image" />
+  <img src="https://contrib.rocks/image?repo=Ang-Kimsor/Armaf" alt="contrib.rocks image" />
 </a>
 
 <p id="contact">
@@ -202,7 +202,7 @@ Contributions are welcome! Feel free to fork the repo, create feature branches, 
 
 **Ang Kimsor** - [Telegram](https://t.me/Thirtieth_October) - [angkimsor@gmail.com](mailto:angkimsor@gmail.com) - **Call Me ☎️ +85587932289**
 
-Project Link: [https://github.com/Kimsor1111/PteasDecor](https://github.com/Kimsor1111/Armaf)
+Project Link: [https://github.com/Ang-Kimsor/PteasDecor](https://github.com/Ang-Kimsor/Armaf)
 
 <p id="acknowledgments">
 </p>
