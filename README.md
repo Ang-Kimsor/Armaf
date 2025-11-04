@@ -1,10 +1,10 @@
 <!-- PROJECT LOGO -->
 <div align="center">
-  <a href="https://github.com/Kimsor1111/Armaf">
+  <a href="https://github.com/Ang-Kimsor/Armaf">
     <img src="src/assets/logo.jpg" alt="Logo" width="150" height="150">
   </a>
 
-  <h1 align="center">💎 Armaf Perfume E-Commerce Clone 💎</h1>
+  <h1 align="center">💎 Armaf Clone 💎</h1>
 
   <p align="center">
     A modern ReactJS clone of the official Armaf perfumes website, offering a premium and elegant shopping experience for luxury fragrances.
@@ -46,7 +46,7 @@
 
 ## About The Project 📖
 
-[![Project Screenshot][project-screenshot]](https://example.com)
+[![Project Screenshot][project-screenshot]]()
 
 This project is a ReactJS-based **clone of the Armaf perfumes website**, designed to replicate the premium look, feel, and functionality of the original site while being developer-friendly for customization.
 
@@ -70,7 +70,10 @@ This project is perfect for learning e-commerce UI/UX design, practicing React d
 [![FontAwesome][FontAwesome]][FontAwesome-url]
 [![JS][JS]][JS-url]
 [![React][React.js]][React-url]
+[![ReactLazy][ReactLazy.js]][React-url]
 [![ReactRouter][ReactRouter.js]][ReactRouter-url]
+[![ReactLoadingSkeleton][ReactLoadingSkeleton.js]][ReactLoadingSkeleton-url]
+[![FramerMotion][FramerMotion.js]][FramerMotion-url]
 
 <!-- GETTING STARTED -->
 <p id="getting-started">
@@ -96,15 +99,15 @@ Follow these steps to run the Armaf Clone locally for development or testing.
 
 1. Clone the repository
 
-    ```sh
-     git clone https://github.com/Kimsor1111/Armaf.git
-    ```
+   ```sh
+    git clone https://github.com/Ang-Kimsor/Armaf.git
+   ```
 
 2. Open Armaf Project
-   
-    ```sh
-     cd Armaf
-    ```
+
+   ```sh
+    cd Armaf
+   ```
 
 3. Install dependencies
 
@@ -124,9 +127,9 @@ Follow these steps to run the Armaf Clone locally for development or testing.
 
    - Using npm:
 
-      ```sh
-        npm run dev
-      ```
+     ```sh
+       npm run dev
+     ```
 
    - or using yarn:
 
@@ -151,7 +154,7 @@ Follow these steps to run the Armaf Clone locally for development or testing.
 
 │   ├── /components             # Reusable React components or UI elements
 
-│   ├── /context                # Set up for reducer, action and globe context  
+│   ├── /context                # Set up for reducer, action and globe context
 
 │   ├── /data                   # Static data for whole website (Product, Footer, Navbar, ...)
 
@@ -189,8 +192,8 @@ This clone is ideal for testing e-commerce UI features or customizing your own p
 
 Contributions are welcome! Feel free to fork the repo, create feature branches, and submit pull requests. Please open issues for bugs or feature requests.
 
-<a href="https://github.com/Kimsor1111/Armaf/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Kimsor1111/Armaf" alt="contrib.rocks image" />
+<a href="https://github.com/Ang-Kimsor/Armaf/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Ang-Kimsor/Armaf" alt="contrib.rocks image" />
 </a>
 
 <p id="contact">
@@ -202,7 +205,7 @@ Contributions are welcome! Feel free to fork the repo, create feature branches, 
 
 **Ang Kimsor** - [Telegram](https://t.me/Thirtieth_October) - [angkimsor@gmail.com](mailto:angkimsor@gmail.com) - **Call Me ☎️ +85587932289**
 
-Project Link: [https://github.com/Kimsor1111/PteasDecor](https://github.com/Kimsor1111/Armaf)
+Project Link: [https://github.com/Ang-Kimsor/Armaf](https://github.com/Ang-Kimsor/Armaf)
 
 <p id="acknowledgments">
 </p>
@@ -236,5 +239,8 @@ Project Link: [https://github.com/Kimsor1111/PteasDecor](https://github.com/Kims
 [React-url]: https://reactjs.org/
 [ReactRouter.js]: https://img.shields.io/badge/ReactRouter-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [ReactRouter-url]: https://reactrouter.com/
-[ReactRedux.js]: https://img.shields.io/badge/ReactRedux-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[ReactRedux-url]: https://react-redux.js.org/
+[ReactLoadingSkeleton.js]: https://img.shields.io/badge/React%20Loading%20Skeleton-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[ReactLoadingSkeleton-url]: https://www.npmjs.com/package/react-loading-skeleton
+[FramerMotion.js]: https://img.shields.io/badge/Framer%20Motion-20232A?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+[FramerMotion-url]: https://motion.dev/
+[ReactLazy.js]: https://img.shields.io/badge/ReactLazy-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
