@@ -69,6 +69,7 @@ const Home = () => {
           >
             {ImageHeroData1.map(({ name, path, image }, index) => (
               <motion.div
+                className="w-full flex items-center justify-center"
                 key={index}
                 variants={{
                   hidden: { opacity: 0, y: -10 },
