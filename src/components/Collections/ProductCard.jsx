@@ -6,7 +6,6 @@ const ProductCard = ({ id, name, category, price, stock, img }) => {
       to={`/Collections/${category.replaceAll(" ", "-").toLowerCase()}/${name
         .replaceAll(" ", "-")
         .toLowerCase()}`}
-      className="relative"
     >
       <div className="flex items-center justify-center mb-4 overflow-hidden">
         <img

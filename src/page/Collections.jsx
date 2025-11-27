@@ -429,6 +429,7 @@ const Collections = () => {
                 {currentProducts.map(
                   ({ id, name, category, price, stock, img }) => (
                     <motion.div
+                      className="relative"
                       key={id}
                       initial={{ opacity: 0, y: -10 }}
                       whileInView={{ opacity: 1, y: 0 }}
