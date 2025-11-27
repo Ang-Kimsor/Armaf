@@ -2,7 +2,7 @@ const SmallHero = ({ category, title, des, imgbig, imgsmall, reverse }) => {
   return (
     <>
       <div
-        className={`w-full bg-white flex gap-[20px] items-center flex-col-reverse relative ${
+        className={`w-full bg-white flex gap-[20px] items-center md:justify-start justify-center flex-col-reverse relative ${
           reverse ? "lg:flex-row-reverse" : "lg:flex-row"
         }`}
       >
